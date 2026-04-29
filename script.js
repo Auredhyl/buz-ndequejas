@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function () {
        CONTADOR SEGUNDOS
     ========================= */
     const contador = document.getElementById("contador");
-    let segundos = 0;
+    const inicio = new Date("2025-04-14T18:39:00");
+    let segundos = Math.floor((new Date() - inicio) / 1000);
 
     setInterval(() => {
         segundos++;
