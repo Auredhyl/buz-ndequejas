@@ -36,19 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
     /* =========================
        CONTADOR SEGUNDOS
     ========================= */
-   const contador = document.getElementById("contador");
+const contador = document.getElementById("contador");
 
-let inicio = localStorage.getItem("inicio");
-
-if (!inicio) {
-    inicio = new Date().toISOString();
-    localStorage.setItem("inicio", inicio);
-}
-
-inicio = new Date(inicio);
+const inicio = new Date("2026-04-14T18:39:00");
 
 function actualizar() {
-    const segundos = Math.floor((new Date() - inicio) / 1000);
+    const ahora = new Date();
+    const segundos = Math.floor((ahora - inicio) / 1000);
     contador.textContent = `${segundos} segundos`;
 }
 
