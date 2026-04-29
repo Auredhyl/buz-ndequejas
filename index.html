@@ -15,7 +15,6 @@
                 El amor vive en el corazón de los valientes.<br>
                 si lo eres toca mi corazón
             </p>
-
             <button id="entrar">
                 <img src="images/corazon.png" alt="Entrar" class="btn-corazon">
             </button>
@@ -25,6 +24,9 @@
     <!-- Contenido -->
     <div id="contenido-web" style="display:none;">
 
+        <!-- Overlay para que el fondo no tape la lectura -->
+        <div class="fondo-overlay"></div>
+
         <header>
             <h1>Menuda historia</h1>
             <p>cada segundo cuenta: <span id="contador">0 segundos</span></p>
@@ -32,56 +34,48 @@
 
         <main class="contenedor-principal">
 
-            <!-- IZQUIERDA: CARRUSEL -->
+            <!-- COLUMNA 1: CARRUSEL -->
             <section id="carrusel" class="columna">
                 <h2>otra manera de contar la historia</h2>
-
                 <div class="carrusel">
-                    <img src="foto1.jpeg" class="active" alt="Foto 1">
-                    <img src="foto2.jpeg" alt="Foto 2">
+                    <img src="images/foto1.jpeg" class="active" alt="Foto 1">
+                    <img src="images/foto2.jpeg" alt="Foto 2">
+                    <!-- Añade más imágenes aquí -->
                 </div>
             </section>
 
-            <!-- DERECHA: HISTORIA -->
+            <!-- COLUMNA 2: HISTORIA -->
             <section id="historia" class="columna">
                 <h2>¿qué raro todo no?</h2>
-
                 <div class="historia-texto">
-
                     <p>Todo empezó con una broma ridícula. 
         Un mensaje que podría haber sido ignorado, uno de esos que uno manda
         sin demasiadas expectativas, con la ceja levantada y una sonrisa
         medio guardada. Algo sobre poner una reclamación. Algo absurdo.
                     </p>
-
                     <p>Nadie esperaba que al otro lado hubiera alguien que la recogiera
         con la misma ironía, que devolviera el juego con la pelota
         en el mismo punto exacto en el que fue lanzada.
         Pero ahí estaba. Y ahí empezó todo.
                     </p>
-
                     <p>Hay conversaciones que no tienen intención de convertirse en nada,
         y sin embargo se quedan. Se enredan entre los dedos sin pedir permiso.
                     </p>
-
                     <p>Primero fueron palabras. Luego voces. Llamadas que empezaron
         a deshoras y terminaron con el silencio lento de quien se ha quedado
         dormido al otro lado del teléfono, con la respiración acompasada
         y la pantalla todavía encendida.
                     </p>
-
                     <p>Las bromas se volvieron costumbre. Las costumbres, refugio.
         Y poco a poco, casi sin que ninguno de los dos lo decidiera,
         las defensas que cada uno había levantado con tanto cuidado
         fueron cediendo, primero en los bordes,
         luego en el centro.
                     </p>
-
                     <p>Una sonrisa a través de una pantalla tiene algo de milagro pequeño.
         Una mirada que llega desde lejos y aun así llega entera,
         sin perder nada por el camino.
                     </p>
-
                     <p>Esto no estaba en ningún plan. Y quizás por eso
         se siente tan real.
         Lo que empezó como la historia más rara jamás contada
@@ -89,6 +83,25 @@
         Al menos eso es lo que sugieren los segundos que se suman
         sin prisa.
                     </p>
+                </div>
+            </section>
+
+            <!-- COLUMNA 3: VÍDEOS -->
+            <section id="videos" class="columna">
+                <h2>momentos</h2>
+                <div class="video-wrapper">
+
+                    <video controls>
+                        <source src="videos/video1.mp4" type="video/mp4">
+                        Tu navegador no soporta vídeo.
+                    </video>
+
+                    <!-- Añade más vídeos aquí copiando el bloque <video> -->
+                    <!--
+                    <video controls>
+                        <source src="videos/video2.mp4" type="video/mp4">
+                    </video>
+                    -->
 
                 </div>
             </section>
@@ -103,4 +116,5 @@
 
     <script src="script.js"></script>
 </body>
+</html>
 </html>
