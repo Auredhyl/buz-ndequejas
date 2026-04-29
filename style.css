@@ -1,16 +1,37 @@
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+ 
 body {
     font-family: "Cormorant Garamond", "Georgia", serif;
-    background: linear-gradient(135deg, #e2e2e2, #f5f5f5, #d9d9d9);
+    /* =============================================
+       FONDO: pon aquí la ruta a tu imagen de fondo
+       ============================================= */
+    background: url('images/fondo.jpg') center center / cover fixed no-repeat;
+    /* Si no tienes imagen aún, descomenta la línea de abajo como respaldo: */
+    /* background-color: #f0f0f0; */
     color: #2b2b2b;
     line-height: 1.7;
 }
-
+ 
+/* Overlay semitransparente para mejorar legibilidad sobre el fondo */
+.fondo-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.45);
+    pointer-events: none;
+    z-index: 0;
+}
+ 
+/* Todo el contenido debe ir por encima del overlay */
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
+ 
 /* =========================
    BIENVENIDA
 ========================= */
@@ -24,29 +45,29 @@ body {
     text-align: center;
     z-index: 999;
 }
-
+ 
 .mensaje-bienvenida p {
     font-size: 1.4rem;
     margin-bottom: 20px;
     color: #3a3a3a;
 }
-
+ 
 #entrar {
     background: transparent;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
 }
-
+ 
 #entrar:hover {
     transform: scale(1.08);
 }
-
+ 
 .btn-corazon {
     width: 70px;
     filter: drop-shadow(0 0 10px rgba(0,0,0,0.15));
 }
-
+ 
 /* =========================
    HEADER
 ========================= */
@@ -54,42 +75,50 @@ header {
     text-align: center;
     padding: 50px 20px 30px 20px;
 }
-
+ 
 header h1 {
     font-size: 2.6rem;
     font-weight: 400;
     letter-spacing: 1px;
 }
-
+ 
 header p {
     margin-top: 10px;
     opacity: 0.7;
 }
-
+ 
 /* =========================
    CONTENEDOR GENERAL
 ========================= */
 .contenedor-principal {
     display: flex;
-    gap: 60px;
-    padding: 20px 80px;
+    gap: 40px;
+    padding: 20px 60px;
     align-items: flex-start;
 }
-
-/* columnas */
+ 
 .columna {
     flex: 1;
 }
-
+ 
+.columna h2 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+}
+ 
 /* =========================
-   HISTORIA (IZQUIERDA)
+   HISTORIA
 ========================= */
 #historia {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
+ 
 .historia-texto {
     width: 85%;
     background: rgba(255,255,255,0.6);
@@ -99,57 +128,78 @@ header p {
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     text-align: center;
 }
-
+ 
 .historia-texto p {
     margin-bottom: 18px;
     font-size: 1.08rem;
 }
-
+ 
 /* =========================
-   CARRUSEL (DERECHA)
+   CARRUSEL
 ========================= */
 #carrusel {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-/* contenedor de imágenes */
+ 
 .carrusel {
     position: relative;
     width: 100%;
-    height: 70vh; /* más espacio vertical para evitar cortes */
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-/* imagen tipo móvil mejor proporcionada */
+ 
 .carrusel img {
     position: absolute;
-
     width: 300px;
     height: 520px;
-
     object-fit: cover;
-    object-position: center; /* 🔥 clave para evitar cortes raros */
-
+    object-position: center;
     border-radius: 28px;
-
     box-shadow:
         0 20px 40px rgba(0,0,0,0.18),
         0 0 0 8px rgba(255,255,255,0.6);
-
     opacity: 0;
     transform: scale(0.98);
     transition: opacity 1s ease, transform 1s ease;
 }
-
-/* activa imagen */
+ 
 .carrusel img.active {
     opacity: 1;
     transform: scale(1);
 }
+ 
+/* =========================
+   VÍDEOS
+========================= */
+#videos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.video-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    width: 100%;
+}
+ 
+.video-wrapper video {
+    width: 300px;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 28px;
+    box-shadow:
+        0 20px 40px rgba(0,0,0,0.18),
+        0 0 0 8px rgba(255,255,255,0.6);
+    background: #000;
+}
+ 
 /* =========================
    FOOTER
 ========================= */
@@ -159,14 +209,14 @@ footer {
     opacity: 0.6;
     font-style: italic;
 }
-
+ 
 /* =========================
    CONTADOR
 ========================= */
 #contador {
     font-weight: 500;
 }
-
+ 
 /* =========================
    RESPONSIVE
 ========================= */
@@ -176,12 +226,27 @@ footer {
         padding: 20px;
         gap: 40px;
     }
-
-    .carrusel img {
-        width: 80%;
+ 
+    .carrusel {
+        height: auto;
+        padding-bottom: 20px;
     }
-
+ 
+    .carrusel img {
+        position: relative;
+        width: 80%;
+        height: auto;
+        min-height: 400px;
+    }
+ 
     .historia-texto {
         width: 95%;
     }
+ 
+    .video-wrapper video {
+        width: 85%;
+        height: auto;
+        min-height: 300px;
+    }
 }
+ 
