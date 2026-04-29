@@ -38,11 +38,13 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================= */
     const contador = document.getElementById("contador");
     const inicio = new Date("2026-04-14T18:39:00");
-    let segundos = Math.floor((new Date() - inicio) / 1000);
 
-    setInterval(() => {
-        segundos++;
-        contador.textContent = `${segundos} segundos`;
-    }, 1000);
+    function actualizar() {
+    const segundos = Math.floor((new Date() - inicio) / 1000);
+    contador.textContent = `${segundos} segundos`;
+    }
+
+    actualizar(); // primera carga
+    setInterval(actualizar, 1000);
 
 });
