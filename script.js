@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     ========================= */
 const contador = document.getElementById("contador");
 
-const inicio = new Date("2026-04-14T18:39:00");
+const inicio = new Date(2026, 3, 14, 18, 39, 0);
 
 function actualizar() {
     const ahora = new Date();
