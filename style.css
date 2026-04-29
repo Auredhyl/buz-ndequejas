@@ -10,7 +10,7 @@ body {
     /* =============================================
        FONDO: pon aquí la ruta a tu imagen de fondo
        ============================================= */
-    background: url('fondo.jpg') center center / cover fixed no-repeat;
+    background: url('fondo.jpeg') center center / cover fixed no-repeat;
     /* Si no tienes imagen aún, descomenta la línea de abajo como respaldo: */
     /* background-color: #f0f0f0; */
     color: #2b2b2b;
